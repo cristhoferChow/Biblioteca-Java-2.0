@@ -1,2 +1,1 @@
-# Java
 # Criação do projeto
