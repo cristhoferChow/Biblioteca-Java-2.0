@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplo de Sessão</title>
+</head>
+<body>
+    <h1>Exemplo de Sessão com Spring Boot</h1>
+
+    <input type="text" id="valorInput" placeholder="Digite um valor" />
+    <button onclick="guardarNaSessao()">Guardar na Sessão</button>
+    <br><br>
+    <button onclick="obterDaSessao()">Obter da Sessão</button>
+
+    <p id="resposta"></p>
+
+    <script>
+        const baseUrl = "http://localhost:8080/sessao";
+
+        function guardarNaSessao() {
+            const valor = document.getElementById("valorInput").value;
+            fetch(`${baseUrl}/guardar/${valor}`, {
+                method: "GET",
+                credentials: "include" // MUITO IMPORTANTE para manter a sessão
+            })
+            .then(response => response.text())
+            .then(texto => {
+                document.getElementById("resposta").innerText = texto;
+            });
+        }
+
+        function obterDaSessao() {
+            fetch(`${baseUrl}/obter`, {
+                method: "GET",
+                credentials: "include" // mantém o cookie da sessão
+            })
+            .then(response => response.text())
+            .then(texto => {
+                document.getElementById("resposta").innerText = texto;
+            });
+        }
+    </script>
+</body>
+</html>
