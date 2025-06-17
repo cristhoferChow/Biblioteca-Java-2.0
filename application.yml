@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/projeto_java
+    url: jdbc:postgresql://localhost:5432/biblioteca
     username: adm
     password: 123
     driver-class-name: org.postgresql.Driver
@@ -19,3 +19,5 @@ spring:
   sql:
     init:
       mode: never         # evita tentar rodar schema em toda inicialização
+
+debug: true

@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/admin")
+@RequestMapping("/auth")
 public class LoginSessao{
 
     private static final String ATRIBUTO_ADMIN = "isAdmin";
